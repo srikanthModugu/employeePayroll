@@ -63,4 +63,10 @@ public class EmployeePayrollServiceImpl implements IEmployeePayrollService {
 		}).collect(Collectors.toList());
 	}
 
+	@Override
+	public ResponseDo deleteEmployee(int id) {
+		employeeRepository.deleteById(id);
+		return new ResponseDo("Employee Deleteed Successfully..!!");
+	}
+
 }
