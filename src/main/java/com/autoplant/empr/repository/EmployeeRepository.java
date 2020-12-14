@@ -8,6 +8,8 @@ import com.autoplant.empr.model.EmployeeEntity;
 @Repository
 public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Integer> {
 	
-	public EmployeeEntity findByName(String name);
+	
+	public EmployeeEntity findById(int id);
+	
 
 }

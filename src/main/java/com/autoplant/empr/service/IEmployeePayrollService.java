@@ -10,5 +10,6 @@ public interface IEmployeePayrollService {
 	public ResponseDo addEmployee(EmplyoeeDO empReqDo);
 	public List<EmplyoeeDO> getEmployeeList();
 	public ResponseDo deleteEmployee(int id);
+	public EmplyoeeDO getEmployeeByID(int id);
 	
 }

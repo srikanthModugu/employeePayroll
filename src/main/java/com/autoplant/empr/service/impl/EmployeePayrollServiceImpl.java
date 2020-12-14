@@ -51,14 +51,7 @@ public class EmployeePayrollServiceImpl implements IEmployeePayrollService {
 			throw new NotFoundException("No Data Found of any employee");
 		}
 		return emplList.stream().map(employee -> {
-			EmplyoeeDO emp = new EmplyoeeDO();
-			emp.setName(employee.getName());
-			emp.setDepartment(employee.getDepartment());
-			emp.setSalary(employee.getSalary());
-			emp.setGender(employee.getGender());
-			emp.setImagePath(employee.getImagePath());
-			emp.setStartDate("");
-			emp.setNotes(employee.getNotes());
+			EmplyoeeDO emp = convertobj(employee);
 			return emp;
 		}).collect(Collectors.toList());
 	}
@@ -67,6 +60,28 @@ public class EmployeePayrollServiceImpl implements IEmployeePayrollService {
 	public ResponseDo deleteEmployee(int id) {
 		employeeRepository.deleteById(id);
 		return new ResponseDo("Employee Deleteed Successfully..!!");
+	}
+
+	@Override
+	public EmplyoeeDO getEmployeeByID(int id) {
+		EmployeeEntity employee = employeeRepository.findById(id);
+		if(employee == null) {
+			throw new NotFoundException("No Data Found for the id:"+id);
+		}
+		EmplyoeeDO emp = convertobj(employee);
+		return emp;
+	}
+	
+	private EmplyoeeDO convertobj(EmployeeEntity employee) {
+		EmplyoeeDO emp = new EmplyoeeDO();
+		emp.setName(employee.getName());
+		emp.setDepartment(employee.getDepartment());
+		emp.setSalary(employee.getSalary());
+		emp.setGender(employee.getGender());
+		emp.setImagePath(employee.getImagePath());
+		emp.setStartDate("");
+		emp.setNotes(employee.getNotes());
+		return emp;
 	}
 
 }

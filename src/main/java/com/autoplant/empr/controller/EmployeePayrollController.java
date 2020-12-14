@@ -36,4 +36,9 @@ public class EmployeePayrollController {
     public ResponseEntity<ResponseDo> deleteEmplyoee(@PathVariable int id) {
         return new ResponseEntity<ResponseDo>(employeePayrollService.deleteEmployee(id), HttpStatus.OK);
     }
+    
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<EmplyoeeDO> getEmployeeById(@PathVariable int id) {
+        return new ResponseEntity<EmplyoeeDO>(employeePayrollService.getEmployeeByID(id), HttpStatus.OK);
+    }
 }
