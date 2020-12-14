@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import com.autoplant.empr.model.EmployeeEntity;
 
 @Repository
-public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Long> {
+public interface EmployeeRepository extends JpaRepository<EmployeeEntity, Integer> {
+	
+	public EmployeeEntity findByName(String name);
 
 }
