@@ -1,6 +1,6 @@
 package com.autoplant.empr.model;
 
-public class EmplyoeeReqDO {
+public class EmplyoeeDO {
 
 	
 	private String name;
@@ -69,7 +69,7 @@ public class EmplyoeeReqDO {
 
 	@Override
 	public String toString() {
-		return "EmplyoeeReqDO [name=" + name + ", gender=" + gender + ", imagePath=" + imagePath + ", salary=" + salary
+		return "EmplyoeeDO [name=" + name + ", gender=" + gender + ", imagePath=" + imagePath + ", salary=" + salary
 				+ ", startDate=" + startDate + ", notes=" + notes + ", department=" + department + "]";
 	}
 	
